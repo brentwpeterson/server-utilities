@@ -5,7 +5,6 @@ function createDatabase ()
 {
     
     MYSQL=`which mysql`
-    ROOTPASSWD='Dingle17'
 
     Q1="CREATE DATABASE IF NOT EXISTS $1;"
     Q2="CREATE USER '$1'@'localhost' IDENTIFIED BY '$2';"
@@ -16,8 +15,7 @@ function createDatabase ()
     
     echo $SQL
 
-    #mysql -uroot -e "$SQL"
-    mysql -uroot -p$ROOTPASSWD -e "$SQL"
+    mysql -uroot -e "$SQL"
     $MYSQL -e "$SQL"
     echo "Database Created" 
 }

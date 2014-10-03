@@ -85,4 +85,3 @@ mkdir var
 mkdir media
 chmod -R o+w media var app/etc
 
-

@@ -8,9 +8,18 @@ yum -y install php54 php54-devel php54-gd php54-imap php54-ldap php54-mysql php5
 mv /etc/httpd/conf.d/fcgid.conf /etc/httpd/conf.d/fcgid.bak
 mkdir -p /etc/httpd/vhosts.d
 sed -i '95iServerName localhost' /etc/httpd/conf/httpd.conf
+echo 'IncludeOptional vhosts.d/*.conf' >> /etc/httpd/conf/httpd.conf
 #hostname
 #read hostn
 #ip='127.0.0.1 '
 #addhost = ${ip}${hostn}
 #echo $addhost >> /etc/hosts
 service httpd restart; service mysqld restart
+yum update
+service httpd restart; service mysqld restart
+cd /home/ec2-user/
+wget https://raw.githubusercontent.com/netz98/n98-magerun/master/n98-magerun.phar
+chmod +x ./n98-magerun.phar
+sudo cp ./n98-magerun.phar /usr/local/bin/
+sed -i '2ialias magerun="~/./n98-magerun.phar"' /home/ec2-user/.bashrc
+

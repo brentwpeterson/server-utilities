@@ -37,13 +37,16 @@ echo $password | passwd $user --stdin
 echo "Creating Needed Directories"
 cd /home/$user
 chmod 755 /home/$user
+mkdir -p /var/www/vhsots/$user/html
+mkdir -p /var/www/vhsots/$user/logs
+mkdir -p /var/www/vhsots/$user/mysql_backup
 su $user -c "cd ~ && mkdir html && mkdir logs && mkdir mysql_backup"
 
 #
 # Create apache conf
 ##
 echo "Creating Apache Configuration"
-sed -e "s;%USER%;$user;" /root/magento-automation/base.conf > '/etc/httpd/vhosts.d/'$user'.conf'
+sed -e "s;%USER%;$user;" /home/ec2-user/server-scripts/Amazon/base.conf > '/etc/httpd/vhosts.d/'$user'.conf'
 echo "Restarting Apache Gracefully"
 service httpd graceful
 

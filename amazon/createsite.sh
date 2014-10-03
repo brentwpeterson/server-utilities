@@ -46,7 +46,7 @@ su $user -c "cd ~ && mkdir html && mkdir logs && mkdir mysql_backup"
 # Create apache conf
 ##
 echo "Creating Apache Configuration"
-sed -e "s;%USER%;$user;" /home/ec2-user/server-scripts/Amazon/base.conf > '/etc/httpd/vhosts.d/'$user'.conf'
+sed -e "s;%USER%;$user;" /home/ec2-user/server-scripts/amazon/base.conf > '/etc/httpd/vhosts.d/'$user'.conf'
 echo "Restarting Apache Gracefully"
 service httpd graceful
 
@@ -64,7 +64,7 @@ mkdir /home/$user/.ssh
 chmod 777 /home/$user/.ssh
 su $user -c "ssh-keygen -t rsa -f /home/$user/.ssh/id_rsa"
 chmod 700 /home/$user/.ssh
-
+chown -R $user:$user /home/$user
 ##
 # Send email with id.rsa.pub attached
 ##
@@ -74,3 +74,15 @@ echo "This is the message body" | mutt -s "Development Information" -a "/home/$u
 # return to root directory
 ##
 cd ~
+su $user
+echo "Copy and paste key to codebase"
+cat ~/.ssh/id_rsa.pub
+echo "Enter GIT Repo adddress, followed by [ENTER]:"
+read gitrepo
+cd /var/www/vhosts/$user/html
+git clone $gitrepo .
+mkdir var
+mkdir media
+chmod -R o+w media var app/etc
+
+

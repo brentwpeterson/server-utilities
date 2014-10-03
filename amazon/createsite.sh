@@ -84,4 +84,4 @@ git clone $gitrepo .
 mkdir var
 mkdir media
 chmod -R o+w media var app/etc
-
+magerun local-config:generate 'localhost' $user $pass $user 'files' 'admin'

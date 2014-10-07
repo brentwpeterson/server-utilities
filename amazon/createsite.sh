@@ -37,9 +37,9 @@ echo $password | passwd $user --stdin
 echo "Creating Needed Directories"
 cd /home/$user
 chmod 755 /home/$user
-mkdir -p /var/www/vhsots/$user/html
-mkdir -p /var/www/vhsots/$user/logs
-mkdir -p /var/www/vhsots/$user/mysql_backup
+mkdir -p /var/www/vhosts/$user/html
+mkdir -p /var/www/vhosts/$user/logs
+mkdir -p /var/www/vhosts/$user/mysql_backup
 su $user -c "cd ~ && mkdir html && mkdir logs && mkdir mysql_backup"
 
 #

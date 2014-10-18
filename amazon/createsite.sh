@@ -1,6 +1,6 @@
 #!/bin/bash
 # This script will install all required data for a development environment.
-
+#Run with SUDO?
 function createDatabase ()
 {
     
@@ -40,8 +40,7 @@ chmod 755 /home/$user
 mkdir -p /var/www/vhosts/$user/html
 mkdir -p /var/www/vhosts/$user/logs
 mkdir -p /var/www/vhosts/$user/mysql_backup
-su $user -c "cd ~ && mkdir html && mkdir logs && mkdir mysql_backup"
-
+chown -R $user:$user /var/www/vhosts/$user/
 #
 # Create apache conf
 ##
@@ -74,14 +73,12 @@ echo "This is the message body" | mutt -s "Development Information" -a "/home/$u
 # return to root directory
 ##
 cd ~
-su $user
 echo "Copy and paste key to codebase"
-cat ~/.ssh/id_rsa.pub
+su $user -c "cat ~/.ssh/id_rsa.pub"
 echo "Enter GIT Repo adddress, followed by [ENTER]:"
 read gitrepo
 cd /var/www/vhosts/$user/html
-git clone $gitrepo .
-mkdir var
-mkdir media
-chmod -R o+w media var app/etc
-magerun local-config:generate 'localhost' $user $pass $user 'files' 'admin'
+su $user -c "git clone $gitrepo ."
+su $user -c "mkdir var"
+su $user -c "mkdir media"
+su $user -c "chmod -R o+w media var app/etc"

@@ -75,6 +75,9 @@ echo "This is the message body" | mutt -s "Development Information" -a "/home/$u
 cd ~
 echo "Copy and paste key to codebase"
 su $user -c "cat ~/.ssh/id_rsa.pub"
+read -p "Do you want to setup a repo now?" -n 1 -r
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
 echo "Enter GIT Repo adddress, followed by [ENTER]:"
 read gitrepo
 cd /var/www/vhosts/$user/html
@@ -82,3 +85,4 @@ su $user -c "git clone $gitrepo ."
 su $user -c "mkdir var"
 su $user -c "mkdir media"
 su $user -c "chmod -R o+w media var app/etc"
+fi

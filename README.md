@@ -8,3 +8,6 @@ This should run from the ec2-user account.
 
 #centos
 For centos
+
+#ubuntu
+For Ubuntu 12

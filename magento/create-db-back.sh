@@ -8,7 +8,7 @@ echo "Name of file (letsdump.sh is default, followed by [ENTER]:"
 read file
 echo "Do you want to change the name of your main backup directory? (myssql_backup is default), followed by [ENTER]:"
 read backdir
-backdir=${backdir:-$backdir}
+backdir=${backdir:-mysql_backup}
 file=${file:-letsdump.sh}
 dbs=($(cat $path | grep -oP '(?<=<dbname><!\[CDATA\[)[^\]]+'))
 host=($(cat $path | grep -oP '(?<=<host><!\[CDATA\[)[^\]]+'))

@@ -1,4 +1,7 @@
 #!/bin/bash
+#########################
+# Ask for the app location
+#########################
 echo "Enter path for local.xml (Only enter the application path, not the trailing /), followed by [ENTER]:"
 read appath
 path="$appath/app/etc/local.xml"
@@ -6,16 +9,25 @@ if [ -e "$path" ]
 then
 echo "Name of file (letsdump.sh is default, followed by [ENTER]:"
 read file
+#########################
+# The path from ~/your_directory
+#########################
 echo "Do you want to change the name of your main backup directory? (myssql_backup is default), followed by [ENTER]:"
 read backdir
 backdir=${backdir:-mysql_backup}
 file=${file:-letsdump.sh}
+#########################
+# Collect data on Local.xml
+#########################
 dbs=($(cat $path | grep -oP '(?<=<dbname><!\[CDATA\[)[^\]]+'))
 host=($(cat $path | grep -oP '(?<=<host><!\[CDATA\[)[^\]]+'))
 password=($(cat $path | grep -oP '(?<=<password><!\[CDATA\[)[^\]]+'))
 user=($(cat $path | grep -oP '(?<=<username><!\[CDATA\[)[^\]]+'))
 prefix=($(cat $path | grep -oP '(?<=<table_prefix><!\[CDATA\[)[^\]]+'))
 echo $path
+#########################
+# Check if path exists
+#########################
 if [ ! -d "$HOME/$backdir/update" ]; then
 mkdir -p $HOME/$backdir/update
 fi

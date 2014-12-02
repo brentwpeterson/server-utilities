@@ -8,6 +8,7 @@ This should run from the ec2-user account.
 
 #centos
 For centos
+The standard will install php 5.3 and apache 2.2
 
 #ubuntu
 For Ubuntu 12

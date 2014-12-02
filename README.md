@@ -11,3 +11,6 @@ For centos
 
 #ubuntu
 For Ubuntu 12
+
+#magento
+Includes Magento specific scripts

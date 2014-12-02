@@ -16,6 +16,10 @@ mv /etc/httpd/conf.d/fcgid.conf /etc/httpd/conf.d/fcgid.bak
 sed -i '95iServerName localhost' /etc/httpd/conf/httpd.conf
 mkdir -p /etc/httpd/vhosts.d/
 yum install mutt
+read -p "Install Firewall? [yn]" answer
+if [ $answer == y ]; then
+yum install system-config-firewall
+fi
 #hostname
 #read hostn
 #ip='127.0.0.1 '

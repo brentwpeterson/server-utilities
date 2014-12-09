@@ -11,7 +11,10 @@ For centos
 The standard will install php 5.3 and apache 2.2
 
 #ubuntu
-For Ubuntu 12
+Ubuntu server 12
+Ubuntu Desktop 14
+I would love to get help on these
+
 
 #magento
 Includes Magento specific scripts

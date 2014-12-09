@@ -9,3 +9,5 @@ apt-get install php5-xcache php5-cli
 apt-get install libapache2-mod-fastcgi php5-fpm
 a2enmod actions fastcgi alias
 /etc/init.d/apache2 restart
+sudo apt-get install default-jre
+sudo apt-get install default-jdk

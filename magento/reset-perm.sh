@@ -1,6 +1,7 @@
 #!/bin/bash
 #########################
 # Ask for the app location
+# this is from http://www.magentocommerce.com/knowledge-base/entry/install-privs-after
 #########################
 echo "Enter path for local.xml (Only enter the application path, not the trailing /), followed by [ENTER]:"
 read path

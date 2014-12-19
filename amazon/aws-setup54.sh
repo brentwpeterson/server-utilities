@@ -1,5 +1,6 @@
 #########
 # This will currently install PHP5.4 and MySQL 5.5 I am working on a new version to install MySQL 5.6
+# TODO http://dev.mysql.com/get/mysql-community-release-el6-5.noarch.rpm
 #########
 yum groupinstall 'Development Tools'
 yum -y install ntp httpd24 mod24_ssl mysql-server php54 php54-mysql php54-mbstring phpmyadmin

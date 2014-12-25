@@ -3,11 +3,17 @@
 # TODO http://dev.mysql.com/get/mysql-community-release-el6-5.noarch.rpm
 #########
 yum groupinstall 'Development Tools'
-yum -y install ntp httpd24 mod24_ssl mysql-server php54 php54-mysql php54-mbstring phpmyadmin
+rpm -i http://dev.mysql.com/get/mysql-community-release-el6-5.noarch.rpm
+yum update
+yum install mysql mysql-devel mysql-server mysql-client
+yum install mysql-community-server 
 chkconfig --levels 235 mysqld on
 /etc/init.d/mysqld start
+yum -y install ntp httpd24 mod24_ssl
 chkconfig --levels 235 httpd on
 /etc/init.d/httpd start
+# Stuck here
+yum install php54 php54-mysql php54-mbstring
 yum -y install php54 php54-devel php54-gd php54-imap php54-ldap php54-mysql php54-odbc php54-pear php54-xml php54-xmlrpc php54-pecl-apc php54-mbstring php54-mcrypt php54-mssql php54-snmp php54-soap php54-tidy curl curl-devel perl-libwww-perl ImageMagick libxml2 libxml2-devel mod24_fcgid php54-cli httpd24-devel mutt
 mv /etc/httpd/conf.d/fcgid.conf /etc/httpd/conf.d/fcgid.bak
 mkdir -p /etc/httpd/vhosts.d

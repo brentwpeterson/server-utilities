@@ -29,4 +29,8 @@ yum -y install php54 php54-devel php54-gd php54-imap php54-ldap php54-mysql php5
 #chmod +x ./n98-magerun.phar
 #sudo cp ./n98-magerun.phar /usr/local/bin/
 #sed -i '2ialias magerun="~/./n98-magerun.phar"' /home/ec2-user/.bashrc
+###################
+# http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/install-LAMP.html
+# TODO need to add/update the amazon permissions
+###################
 

@@ -5,8 +5,11 @@ This is used for scripts that are not tied to a particular server install
 
 #amazon
 Scripts for misc utilities
+
 Setup a PHP5.4 and MySQL 5.5 server from the standard AMI
+
 Setup a PHP5.4 and Percona 5.6 server
+
 Apache 2.4
 
 #centos

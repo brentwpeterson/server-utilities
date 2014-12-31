@@ -1,6 +1,6 @@
 Make sure you test anything you commit to master
 
-#Utilties
+#Utilities
 This is used for scripts that are not tied to a particular server install
 
 #amazon

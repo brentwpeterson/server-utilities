@@ -14,3 +14,6 @@ find $path/var/ -type d -exec chmod 700 {} \;
 find $path/media/ -type d -exec chmod 700 {} \;
 chmod 700 $path/includes
 chmod 600 $path/includes/config.php
+find $path/.git/ -type d -exec chmod 775 {} \; 
+find $path/.git/ -type f -exec chmod 664 {} \; 
+chmod 664 $path/.gitigore 

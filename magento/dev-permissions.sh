@@ -8,6 +8,6 @@ read path
 
 find $path/. -type f -exec chmod 600 {} \;
 find $path/. -type d -exec chmod 700 {} \; 
-find $path/.git/ -type d -exec chmod 775 {} \; 
-find $path/.git/ -type f -exec chmod 664 {} \; 
-chmod 664 $path/.gitigore 
+find $path/.git/ -type d -exec chmod 700 {} \; 
+find $path/.git/ -type f -exec chmod 600 {} \; 
+chmod 600 $path/.gitignore 

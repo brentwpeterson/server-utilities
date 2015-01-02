@@ -42,5 +42,5 @@ chown -R root:www /var/www
 chmod 2775 /var/www
 find /var/www -type d -exec sudo chmod 2775 {} +
 find /var/www -type f -exec sudo chmod 0664 {} +
-sed -i 's/User apache/User $newuser/g' /etc/httpd/conf/httpd.conf
-sed -i 's/Group apache/Group www/g' /etc/httpd/conf/httpd.conf
+sed -i "s/User apache/User "$newuser "/g" /etc/httpd/conf/httpd.conf
+sed -i "s/Group apache/Group www/g" /etc/httpd/conf/httpd.conf

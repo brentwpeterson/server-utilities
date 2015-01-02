@@ -35,7 +35,7 @@ checkfile="$HOME/$backdir/$file"
 if [ -e "$checkfile" ]; then
 mv $HOME/$backdir/$file $HOME/$backdir/$file-bak-$(date +%d%m%Y_%H%M).bak
 else
-echo 'file doesnt exist'
+echo $ile ' was created'
 fi
 touch $HOME/$backdir/$file
 touch $HOME/$backdir/update/clean-log.sql

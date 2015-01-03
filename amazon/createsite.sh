@@ -45,7 +45,7 @@ chown -R $user:$user /var/www/vhosts/$user/
 # Create apache conf
 ##
 echo "Creating Apache Configuration"
-sed -e "s;%USER%;$user;" /home/ec2-user/server-scripts/amazon/base.conf > '/etc/httpd/vhosts.d/'$user'.conf'
+sed -e "s;%USER%;$user;" $HOME/server-scripts/amazon/base.conf > '/etc/httpd/vhosts.d/'$user'.conf'
 echo "Restarting Apache Gracefully"
 service httpd graceful
 

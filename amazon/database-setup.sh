@@ -41,4 +41,4 @@ echo 'Database: '$db
 echo 'Password: '$password
 
 echo 'Test Login'
-echo "mysql -u"$user "-p'"$password"'" $db
+echo "mysql -u"$user "-p'"$password"'" $db > $HOME"/"$user"_"$db".txt"

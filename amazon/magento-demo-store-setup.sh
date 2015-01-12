@@ -63,3 +63,6 @@ echo 'Test Login'
 echo "mysql -u"$user "-p'"$password"'" $db > $HOME"/"$user"_"$db".txt"
 
 sed -e "s;%USER%;demo;" $HOME/server-scripts/amazon/base-nginx.conf > '/etc/nginx/conf.d/demo.conf'
+wget http://www.magentocommerce.com/downloads/assets/1.9.1.0/magento-1.9.1.0.tar.gz -P /var/www/vhosts/demo/
+tar xvfz /var/www/vhosts/demo/magento-1.9.1.0.tar.gz -C /var/www/vhosts/demo
+git clone https://github.com/Vinai/compressed-magento-sample-data.git /var/www/vhosts/demo/data

@@ -12,17 +12,11 @@ chkconfig --levels 235 nginx on
 mkdir -p /var/www/vhosts/
 yum install php54-fpm php54-mysqlnd php54-pdo php54-common php54-mcrypt php54-gd php54-curl php54-soap
 #TODO open up php.ini, find cgi.fix_pathinfo and set the value to 0
-#sed -i '95iServerName localhost' /etc/httpd/conf/httpd.conf
-#echo 'IncludeOptional vhosts.d/*.conf' >> /etc/httpd/conf/httpd.conf
-#hostname
-#read hostn
-#ip='127.0.0.1 '
-#addhost = ${ip}${hostn}
-#echo $addhost >> /etc/hosts
+
 yum update
 chkconfig --levels 235 php-fpm on
 /etc/init.d/php-fpm start
-yum install varnish
+# yum install varnish
 #TODO /etc/sysconfig/varnish
 #Now find VARNISH_LISTEN_PORT=6081 and change it to port 80, save and close.
 # https://github.com/PHOENIX-MEDIA/Magento-PageCache-powered-by-Varnish.git
@@ -44,5 +38,4 @@ chown -R $newuser:www /var/www
 chmod 2775 /var/www
 find /var/www -type d -exec sudo chmod 2775 {} +
 find /var/www -type f -exec sudo chmod 0664 {} +
-#sed -i "s/User apache/User "$newuser "/g" /etc/httpd/conf/httpd.conf
-#sed -i "s/Group apache/Group www/g" /etc/httpd/conf/httpd.conf
+

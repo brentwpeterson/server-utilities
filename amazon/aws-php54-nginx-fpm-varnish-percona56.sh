@@ -27,11 +27,10 @@ yum install varnish
 #Now find VARNISH_LISTEN_PORT=6081 and change it to port 80, save and close.
 # https://github.com/PHOENIX-MEDIA/Magento-PageCache-powered-by-Varnish.git
 
-cd /home/ec2-user/
-wget https://raw.githubusercontent.com/netz98/n98-magerun/master/n98-magerun.phar
-chmod +x ./n98-magerun.phar
-sudo cp ./n98-magerun.phar /usr/local/bin/
-sed -i '2ialias magerun="~/./n98-magerun.phar"' /home/ec2-user/.bashrc
+#wget https://raw.githubusercontent.com/netz98/n98-magerun/master/n98-magerun.phar
+#chmod +x ./n98-magerun.phar
+#sudo cp ./n98-magerun.phar /usr/local/bin/
+#sed -i '2ialias magerun="~/./n98-magerun.phar"' /home/ec2-user/.bashrc
 ###################
 # http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/install-LAMP.html
 # TODO need to add/update the amazon permissions

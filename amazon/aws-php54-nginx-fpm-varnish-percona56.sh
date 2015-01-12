@@ -10,7 +10,7 @@ chkconfig --levels 235 mysql on
 chkconfig --levels 235 nginx on
 /etc/init.d/nginx start
 mkdir -p /var/www/vhosts/
-yum install php54-fpm php54-pdo php54-common php54-mcrypt php54-gd php54-curl php54-soap
+yum install php54-fpm php54-mysqlnd php54-pdo php54-common php54-mcrypt php54-gd php54-curl php54-soap
 #TODO open up php.ini, find cgi.fix_pathinfo and set the value to 0
 #sed -i '95iServerName localhost' /etc/httpd/conf/httpd.conf
 #echo 'IncludeOptional vhosts.d/*.conf' >> /etc/httpd/conf/httpd.conf

@@ -56,11 +56,11 @@ password=$(date +%s | sha256sum | base64 | head -c 10)
 echo "Starting Database creation and DB user"
 createDatabase 'demo' $password 'demo'
 echo 'Did you copy the database info somewhere? ' 
-echo 'Username: '$user
-echo 'Database: '$db
+echo 'Username: demo'
+echo 'Database: demo'
 echo 'Password: '$password
 echo 'Test Login'
-echo "mysql -u"$user "-p'"$password"'" $db > $HOME"/"$user"_"$db".txt"
+echo "mysql -u demo -p'"$password"'demo"  > $HOME"/demo_demo.txt"
 
 sed -e "s;%USER%;demo;" $HOME/server-scripts/amazon/base-nginx.conf > '/etc/nginx/conf.d/demo.conf'
 wget http://www.magentocommerce.com/downloads/assets/1.9.1.0/magento-1.9.1.0.tar.gz -P /var/www/vhosts/demo/

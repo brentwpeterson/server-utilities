@@ -26,14 +26,14 @@ From here [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/install-LAMP.html]
 
 ###### Groups
 - To set file permissions
-- - sudo groupadd www
-- - sudo usermod -a -G www ec2-user
+	- sudo groupadd www
+	- sudo usermod -a -G www ec2-user
 
 - Change the group ownership of /var/www and its contents to the www group. (*This should be for new builds*)
-- - sudo chown -R root:www /var/www
-- - sudo chmod 2775 /var/www
-- - find /var/www -type d -exec sudo chmod 2775 {} +
-- - find /var/www -type f -exec sudo chmod 0664 {} +
+	- sudo chown -R root:www /var/www
+	- sudo chmod 2775 /var/www
+	- find /var/www -type d -exec sudo chmod 2775 {} +
+	- find /var/www -type f -exec sudo chmod 0664 {} +
 
 
 

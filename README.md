@@ -1,4 +1,5 @@
-**I am always looking for updates to these scripts** 
+**These are an effort to help quickly spin up various linux boxes for testing web applications. I am focused on Magento. I am always looking for updates to these scripts** 
+
 # Utilities
 - This is used for scripts that are not tied to a particular server install
 
@@ -21,3 +22,5 @@
 - Includes Magento specific scripts
 
 # Permissions
+
+*Brent W. Peterson 2015*

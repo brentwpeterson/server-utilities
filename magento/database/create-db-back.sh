@@ -2,9 +2,8 @@
 #########################
 # Ask for the app location
 #########################
-echo "Enter path for local.xml (Only enter the application path, not the trailing /), followed by [ENTER]:"
-read appath
-path="$appath/app/etc/local.xml"
+
+path="$1/app/etc/local.xml"
 if [ -e "$path" ]
 then
 echo "Name of file (letsdump.sh is default, followed by [ENTER]:"

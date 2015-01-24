@@ -24,6 +24,12 @@
 # Permissions
 From here [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/install-LAMP.html](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/install-LAMP.html)
 
+###### Apache config
+- Find and replace the Apache user and group with your *user* and the group *www*
+
+###### NGINX config
+- Change the NGINX user and also the php-fpm user
+
 ###### Groups
 - To set file permissions
 	- sudo groupadd www

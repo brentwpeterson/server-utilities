@@ -1,4 +1,3 @@
-echo 'Enter name of file you want for output text'
 FILE=$1
 
 ## MySQL is not always on the same server

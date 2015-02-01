@@ -6,8 +6,8 @@
 # You should download the core version of Magento and setup a GIT repo
 # the opy your core back into it to ensure you have your patches, but at this point you should check to make sure there are not files that are no pathch files
 EMAILTO="brent@wagento.com,creativedata@gmail.com"
-TOPATH=$HOME"/current/"
-FROMPATH=$HOME"/magento-core-files/"
+TOPATH=$HOME"/current"
+FROMPATH=$HOME"/magento-core-files"
 # Change the path for the two directories to diff below
 # TODO create installer that will generate a file automatically
 # TODO download CE version if site is CE, EE Code will have to manually be install

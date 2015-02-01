@@ -18,6 +18,7 @@ then
 else
     echo "Core files are the same" >> $HOME/core-diff.log
 fi
+# Add Core Lib checker
 diff $HOME/magento-core-files/lib/ $HOME/current/lib/
 if [ $? -ne 0 ]
 then

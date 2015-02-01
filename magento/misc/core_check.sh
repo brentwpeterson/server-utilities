@@ -1,4 +1,5 @@
 # This is intended to check the core version of Magento with your version of Magento
+# Requires you have MUTT installed
 # You should download the core version of Magento and setup a GIT repo
 # the opy your core back into it to ensure you have your patches, but at this point you should check to make sure there are not files that are no pathch files
 EMAILTO="brent@wagento.com,creativedata@gmail.com"

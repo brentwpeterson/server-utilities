@@ -8,5 +8,13 @@ then
       diff -wrql $HOME/magento-core-files/app/code/core/ $HOME/current/app/code/core/ >> $HOME/core-diff.log
       diff -wrql $HOME/magento-core-files/app/code/core/ $HOME/current/app/code/core/ | mutt -s "Core File Changes" -- $EMAILTO
 else
-    echo "Core files are the same"
+    echo "Core files are the same" >> $HOME/core-diff.log
+fi
+diff $HOME/magento-core-files/lib/ $HOME/current/lib/
+if [ $? -ne 0 ]
+then
+      diff -wrql $HOME/magento-core-files/lib/ $HOME/current/lib/ >> $HOME/core-diff.log
+      diff -wrql $HOME/magento-core-files/lib/ $HOME/current/lib/ | mutt -s "Core File Changes" -- $EMAILTO
+else
+    echo "lib files are the same" >> $HOME/core-diff.log
 fi

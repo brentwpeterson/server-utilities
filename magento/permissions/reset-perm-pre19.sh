@@ -2,6 +2,10 @@
 #########################
 # Ask for the app location
 #########################
+if [ $# -eq 0 ]; then
+    echo "No arguments provided"
+    exit 1
+fi
 
 find $1/. -type f -exec chmod 644 {} \;
 find $1/. -type d -exec chmod 755 {} \;

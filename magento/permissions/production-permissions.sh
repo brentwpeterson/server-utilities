@@ -4,7 +4,10 @@
 # this is from http://www.magentocommerce.com/knowledge-base/entry/install-privs-after
 # http://permissions-calculator.org/
 #########################
-
+if [ $# -eq 0 ]; then
+    echo "No arguments provided"
+    exit 1
+fi
 ##
 # Take first positional parameter as Magento base directory
 path="$1"

@@ -1,5 +1,9 @@
 #!/bin/bash
 #########################
+# Brent Peterson support@wagento.com
+# ** WARNING ** DO NOT USE THIS ON PRODUCTION
+# DO NOT USE THIS UNLESS YOU HAVE TESTED IT ON YOUR LOCAL SYSTEM
+# DO NOT USE THIS IF YOU HAVE NO IDEA WHAT YOU ARE DOING
 # Ask for the app location
 #########################
 

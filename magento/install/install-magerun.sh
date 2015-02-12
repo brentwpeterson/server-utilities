@@ -1,3 +1,9 @@
+# #########################
+# Brent Peterson support@wagento.com
+# ** WARNING ** DO NOT USE THIS ON PRODUCTION
+# DO NOT USE THIS UNLESS YOU HAVE TESTED IT ON YOUR LOCAL SYSTEM
+# DO NOT USE THIS IF YOU HAVE NO IDEA WHAT YOU ARE DOING
+#########################
 cd ~/
 wget https://raw.githubusercontent.com/netz98/n98-magerun/master/n98-magerun.phar
 chmod +x ./n98-magerun.phar

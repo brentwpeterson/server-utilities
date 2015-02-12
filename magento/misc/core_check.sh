@@ -1,3 +1,9 @@
+# #########################
+# Brent Peterson support@wagento.com
+# ** WARNING ** DO NOT USE THIS ON PRODUCTION
+# DO NOT USE THIS UNLESS YOU HAVE TESTED IT ON YOUR LOCAL SYSTEM
+# DO NOT USE THIS IF YOU HAVE NO IDEA WHAT YOU ARE DOING
+#########################
 # Looking for your feed back to make this better!
 # This is intended to check the core version of Magento with your version of Magento
 # To check to make sure core files have not been changed and if they do get changed to alert someone of the changes

@@ -17,7 +17,7 @@ FROMPATH=$HOME"/magento-core-files"
 # Change the path for the two directories to diff below
 # TODO create installer that will generate a file automatically
 # TODO download CE version if site is CE, EE Code will have to manually be install
-diff $FROMPATH/app/code/core/ $TOPATH/app/code/core/
+diff -wr $FROMPATH/app/code/core/ $TOPATH/app/code/core/
 if [ $? -ne 0 ]
 then
       diff -wrql $FROMPATH/app/code/core/ $TOPATH/app/code/core/ >> $HOME/core-diff.log
@@ -27,7 +27,7 @@ else
     echo "Core files are the same" >> $HOME/core-diff.log
 fi
 # Add Core Lib checker
-diff $FROMPATH/lib/ $TOPATH/lib/
+diff -wr $FROMPATH/lib/ $TOPATH/lib/
 if [ $? -ne 0 ]
 then
       diff -wrql $FROMPATH/lib/ $TOPATH/lib/ >> $HOME/core-diff.log
@@ -35,3 +35,5 @@ then
 else
     echo "lib files are the same" >> $HOME/core-diff.log
 fi
+
+#TODO add loop for multiple directories to check

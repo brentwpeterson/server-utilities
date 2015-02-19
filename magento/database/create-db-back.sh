@@ -15,7 +15,7 @@ read file
 #########################
 # The path from ~/your_directory
 #########################
-echo "Do you want to change the name of your main backup directory? (myssql_backup is default), followed by [ENTER]:"
+echo "Do you want to change the name of your main backup directory? (mysql_backup is default), followed by [ENTER]:"
 read backdir
 backdir=${backdir:-mysql_backup}
 file=${file:-letsdump.sh}

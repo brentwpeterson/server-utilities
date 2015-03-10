@@ -13,12 +13,10 @@ local current_branch=$(git rev-parse --abbrev-ref HEAD)
 for branch in $(git branch --merged | cut -c3-)
   do
   echo "Branch $branch is already merged into $current_branch."
-#  echo "Would you like to delete it? [Y]es/[N]o "
-#  read REPLY
-#  if [[ $REPLY =~ ^[Yy] ]]; then
+#TODO Make sure it is not master
        git branch -d $branch
        git push origin :$branch
-#  fi
+
    done
 }
 merged_branches

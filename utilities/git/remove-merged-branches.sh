@@ -17,8 +17,8 @@ for branch in $(git branch --merged | cut -c3-)
 #  read REPLY
 #  if [[ $REPLY =~ ^[Yy] ]]; then
   if [[ $branch -ne 'master' ]]; then
-    git branch -d $branch
-#       git push origin :$branch
+         git branch -d $branch
+ #       git push origin :$branch  #This will remove the remote branch
    else
 	   echo 'This is the master branch'
    fi

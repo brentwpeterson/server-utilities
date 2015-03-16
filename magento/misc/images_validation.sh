@@ -30,8 +30,8 @@ RM="$(which rm)"
 MAIL="$(which mail)"
 
 # log files
-IMGLOG=$($MKTEMP -t imglog)
-OTHERLOG=$($MKTEMP -t otherlog)
+IMGLOG=$($MKTEMP)
+OTHERLOG=$($MKTEMP)
 
 # assign default list . locate here : ./scan-list.txt
 if [ "$LIST" = "" ]; then

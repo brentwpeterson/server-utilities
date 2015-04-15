@@ -1,5 +1,7 @@
 yum groupinstall 'Development Tools'
-yum -y install ntp httpd mod_ssl mysql-server php php-mysql php-mbstring phpmyadmin
+yum install http://www.percona.com/downloads/percona-release/redhat/0.1-3/percona-release-0.1-3.noarch.rpm
+yum install Percona-Server-client-56 Percona-Server-server-56
+yum -y install ntp httpd mod_ssl php php-mysql php-mbstring phpmyadmin
 chkconfig --levels 235 mysqld on
 /etc/init.d/mysqld start
 chkconfig --levels 235 httpd on

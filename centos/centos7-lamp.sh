@@ -1,10 +1,10 @@
 yum groupinstall 'Development Tools'
-um -y install mariadb-server mariadb
+yum -y install mariadb-server mariadb
+systemctl start mariadb.service
+systemctl enable mariadb.service
 yum -y install ntp httpd mod_ssl php php-mysql php-mbstring phpmyadmin
-chkconfig --levels 235 mysqld on
-/etc/init.d/mysqld start
-chkconfig --levels 235 httpd on
-/etc/init.d/httpd start
+systemctl start httpd.service
+systemctl enable httpd.service
 yum -y install php php-devel php-gd php-imap php-ldap php-mysql php-odbc php-pear php-xml php-xmlrpc php-pecl-apc php-mbstring php-mcrypt php-mssql php-snmp php-soap php-tidy curl curl-devel perl-libwww-perl ImageMagick libxml2 libxml2-devel mod24_fcgid php-cli httpd-devel
 yum install php-igbinary
 yum intsall memcached redis
@@ -21,6 +21,3 @@ read -p "Install Firewall? [yn]" answer
 if [ $answer == y ]; then
 yum install system-config-firewall
 fi
-service httpd restart; service mysqld restart
-yum update
-service httpd restart; service mysqld restart

@@ -48,8 +48,8 @@ done
 echo "EMAILTO=\""$EMAILTO"\""  >> $HOME/$dir/$file
 echo "list=\""$list"\""  >> $HOME/$dir/$file
 echo "for item in \$list; do" >> $HOME/$dir/$file
-echo "TOPATH=$HOME/Sites/Wholebody/current/$item" >> $HOME/$dir/$file
-echo "FROMPATH=$HOME/Sites/Wholebody/magento/$item" >> $HOME/$dir/$file
+echo "TOPATH=$HOME/current/$item" >> $HOME/$dir/$file
+echo "FROMPATH=$HOME/magento/$item" >> $HOME/$dir/$file
 
 echo " diff -wr \$FROMPATH \$TOPATH" >> $HOME/$dir/$file
 echo "	if [ \$? -ne 0 ]; then" >> $HOME/$dir/$file

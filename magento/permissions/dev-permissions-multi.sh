@@ -14,8 +14,10 @@ if [ $# -eq 0 ]; then
     exit 1
 fi
 
-find $1/. -type f -exec chmod 660 {} \;
-find $1/. -type d -exec chmod 770 {} \; 
+find $1/. -type f -exec chmod 640 {} \;
+find $1/. -type d -exec chmod 750 {} \; 
 find $1/.git/ -type d -exec chmod 770 {} \; 
 find $1/.git/ -type f -exec chmod 660 {} \; 
 chmod 660 $1/.gitignore 
+chmod -R 770 $1/var/
+chmod -R 770 $1/media/

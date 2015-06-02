@@ -10,9 +10,5 @@ configs:
     forwarded_ports:
         80: 80
     shared_folders:
-    #- map: './cms_www'
-    #  to: '/var/www/cms'
-    #- map: './cms_bridge_www'
-    #  to: '/var/www/cms_bridge'
     - map: './magento_www'
       to: '/var/www/magento'

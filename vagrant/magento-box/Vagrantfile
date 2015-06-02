@@ -1,0 +1,72 @@
+# encoding: utf-8
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+require "yaml"
+require "fileutils"
+require "io/console"
+
+current_dir     = File.dirname(File.expand_path(__FILE__))
+configs         = YAML.load_file("#{current_dir}/config.yaml")
+vagrant_config  = configs["configs"]
+vagrant_shares  = configs["configs"]["shared_folders"]
+
+Vagrant.require_version ">= 1.6.0"
+
+$install = <<SCRIPT
+  source /home/vagrant/.bashrc
+  sh /vagrant/control.sh build_base
+SCRIPT
+
+$start_mysql_httpd = <<SCRIPT
+  service mysqld start
+  service httpd start
+SCRIPT
+
+Vagrant.configure("2") do |config|
+
+# Check to see if I need this and change to Codebase    
+#if File.exists?"#{current_dir}/bitbucket_ssh_key/bitbucket_key"
+  
+        # USE THE TWO LINES BELOW IF YOU'RE BUILDING FROM SCRATCH
+        config.vm.box       = "centos64-x86_64-20140116"
+        config.vm.box_url   = "https://github.com/2creatives/vagrant-centos/releases/download/v6.4.2/centos64-x86_64-20140116.box"
+        # USE THE LINE BELOW IF YOU WANT TO RUN OFF THE BASE BOX
+        #config.vm.box        = "wmode.box"
+
+        #config.ssh.insert_key = false
+        config.ssh.username = "vagrant"
+        config.ssh.password = "vagrant"
+
+        # Forward SSH to non-standard port to avoid conflicts
+        config.vm.network :forwarded_port, guest: 22, host: 2232, id: "ssh", auto_correct: true
+        config.vm.network :private_network, ip: vagrant_config["ip"]
+
+        config.vm.provider "virtualbox" do |vb|
+            vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+            vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+            vb.gui      = false
+            vb.memory   = vagrant_config["memory"]
+            vb.cpus     = vagrant_config["cpus"]
+        end
+
+        vagrant_config["forwarded_ports"].each do |guest, host|
+            config.vm.network "forwarded_port", guest: guest, host: host, auto_correct: true
+        end
+
+        if vagrant_shares
+            vagrant_shares.each do |folder|
+                config.vm.synced_folder folder["map"].to_s, folder["to"].to_s, create: true, type: "nfs"
+            end
+        end
+
+        config.vm.provision :shell, inline: $install
+        config.vm.provision :shell, run: "always", inline: $start_mysql_httpd
+
+    #else
+
+     #   raise Vagrant::Errors::VagrantError.new, "No Bitbucket Key"
+
+    #end
+
+end

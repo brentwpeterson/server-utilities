@@ -1,0 +1,18 @@
+# A nice configuration file that gets supplanted into the Vagrantfile
+# 
+# This config file is not tracked by git so customize the below values to 
+# suit your specific environment; below are the sensible defaults.
+
+configs:
+    ip: '172.22.22.22'
+    memory: 4096
+    cpus: 2
+    forwarded_ports:
+        80: 80
+    shared_folders:
+    #- map: './cms_www'
+    #  to: '/var/www/cms'
+    #- map: './cms_bridge_www'
+    #  to: '/var/www/cms_bridge'
+    - map: './magento_www'
+      to: '/var/www/magento'

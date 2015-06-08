@@ -20,6 +20,9 @@
 
 # magento
 - Includes Magento specific scripts
+- 
+# vagrant
+- Vagrant box - it's just a start
 
 # Permissions
 From here [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/install-LAMP.html](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/install-LAMP.html)

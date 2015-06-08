@@ -1,6 +1,6 @@
 **These are an effort to help quickly spin up various linux boxes for testing web applications. I am focused on Magento. I am always looking for updates to these scripts** 
 
-# Utilities
+# utilities
 - This is used for scripts that are not tied to a particular server install
 
 # amazon
@@ -20,6 +20,9 @@
 
 # magento
 - Includes Magento specific scripts
+- 
+# vagrant
+- Vagrant box - it's just a start
 
 # Permissions
 From here [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/install-LAMP.html](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/install-LAMP.html)

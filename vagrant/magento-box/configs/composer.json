@@ -1,0 +1,71 @@
+{
+  "name": "wmode/magento-composer-installer",
+  "license": "proprietary",
+  "description": "A composer script to install useful extensions",
+  "type": "magento-module",
+  "minimum-stability": "dev",
+  "authors": [
+    {
+      "name": "Luke Banka"
+    },
+    {
+      "name": "Spiro Floropoulos"
+    },
+    {
+      "name": "Ian Harris"
+    }
+  ],
+  "require": {
+    "wmode/wmode-magento-ee-theme": "dev-master",
+    "wmode/wmode-magento-ee-api-core": "dev-master",
+    "wmode/wmode-magento-ee-api-rest": "dev-master",
+    "wmode/wmode-magento-ee-sample-data": "dev-master",
+    "wmode/wmode-magento-ee-sync": "dev-master"
+  },
+  "require-dev": {
+
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wmode/wmode-magento-ee-theme.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wmode/wmode-magento-ee-api-core.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wmode/wmode-magento-ee-api-rest.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wmode/wmode-magento-ee-sample-data.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:wmode/wmode-magento-ee-sync.git"
+    }
+  ],
+  "extra":{
+    "magento-root-dir": "/var/www/magento/"
+  },
+  "scripts": {
+    "pre-install-cmd": [
+      "git init",
+      "git remote add origin git@bitbucket.org:wmode/wmode-magento-ee.git",
+      "git fetch",
+      "git checkout raw-1.14.1.0"
+    ],
+    "post-install-cmd": [
+      "php -f install.php -- --license_agreement_accepted yes --locale en_US --timezone \"America/Edmonton\" --default_currency USD --db_host localhost --db_name magento --db_user magento --db_pass magento --db_prefix \"\" --url 192.168.60.20:8300 --use_rewrites yes --use_secure no --secure_base_url http://192.168.60.20:8300 --use_secure_admin no --admin_lastname Developer --admin_firstname Wmode --admin_email nothing@wmode.com --admin_username admin --admin_password magent0dev",
+      "cp -Rf ./vendor/wmode/wmode-magento-ee-theme/app/* ./app/",
+      "cp -Rf ./vendor/wmode/wmode-magento-ee-api-core/app/* ./app/",
+      "cp -Rf ./vendor/wmode/wmode-magento-ee-api-rest/app/* ./app/",
+      "cp -Rf ./vendor/wmode/wmode-magento-ee-sample-data/app/* ./app/",
+      "cp -Rf ./vendor/wmode/wmode-magento-ee-sync/app/* ./app/",
+      "sudo chmod -R 0777 ./",
+      "cp /vagrant/configs/magento.htaccess .htaccess"
+    ]
+  }
+}

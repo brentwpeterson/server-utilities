@@ -1,6 +1,6 @@
 **These are an effort to help quickly spin up various linux boxes for testing web applications. I am focused on Magento. I am always looking for updates to these scripts** 
 
-# Utilities
+# utilities
 - This is used for scripts that are not tied to a particular server install
 
 # amazon

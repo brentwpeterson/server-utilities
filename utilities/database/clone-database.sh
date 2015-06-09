@@ -16,7 +16,7 @@ function createDatabase ()
     Q4="FLUSH PRIVILEGES;"
     SQL="${Q1}${Q2}${Q3}${Q4}"
     echo $SQL
-    echo $MYSQL -u $1 -p${2} -h $4 -e "$SQL"
+    $MYSQL -u $1 -p${2} -h $4 -e "$SQL"
     #$MYSQL -e "$SQL"
     echo "Database Created" 
 }

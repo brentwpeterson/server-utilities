@@ -6,7 +6,7 @@
 # DO NOT USE THIS IF YOU HAVE NO IDEA WHAT YOU ARE DOING
 # Ask for the app location
 #########################
-
+##This is still a work in progress
 path="$1/app/etc/local.xml"
 if [ -e "$path" ]
 then

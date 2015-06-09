@@ -6,11 +6,27 @@
 # DO NOT USE THIS IF YOU HAVE NO IDEA WHAT YOU ARE DOING
 # Ask for the app location
 #########################
+function createDatabase ()
+{
+    MYSQL=`which mysql`
+
+    Q1="CREATE DATABASE IF NOT EXISTS $3;"
+    Q2="GRANT USAGE on $3.* to '$1'@'%' IDENTIFIED BY '$2';"
+    Q3="GRANT ALL PRIVILEGES ON $3.* TO '$1'@'%' IDENTIFIED BY '$2';"
+    Q4="FLUSH PRIVILEGES;"
+    SQL="${Q1}${Q2}${Q3}${Q4}"
+    echo $SQL
+    mysql -u $1 -p'$2' -h $4 -e "$SQL"
+    $MYSQL -e "$SQL"
+    echo "Database Created" 
+}
+
+
 ##This is still a work in progress
 path="$1/app/etc/local.xml"
 if [ -e "$path" ]
 then
-echo "Name of file (letsdump.sh is default, followed by [ENTER]:"
+echo "Name of file (clone-db.sh is default, followed by [ENTER]:"
 read file
 #########################
 # The path from ~/your_directory
@@ -18,7 +34,7 @@ read file
 echo "Do you want to change the name of your main backup directory? (mysql_backup is default), followed by [ENTER]:"
 read backdir
 backdir=${backdir:-mysql_backup}
-file=${file:-letsdump.sh}
+file=${file:-clone-db.sh}
 #########################
 # Collect data on Local.xml
 #########################
@@ -40,6 +56,10 @@ mv $HOME/$backdir/$file $HOME/$backdir/$file-bak-$(date +%d%m%Y_%H%M).bak
 else
 echo $ile ' was created'
 fi
+dbx=$(date +%s | sha256sum | base64 | head -c 10)
+ndb=${dbs}${dbx}
+echo "Starting Database creation and DB user"
+createDatabase $user $password $ndb $host
 touch $HOME/$backdir/$file
 touch $HOME/$backdir/update/clean-log.sql
 echo "MAGEFILE=\"$dbs-\$(date +%d%m%Y_%H%M).sql.gz\"" >> $HOME/$backdir/$file

@@ -1,7 +1,7 @@
 #!/bin/bash
 # This script will install all required data for a development environment.
 # RUN AS USER WAGENTO
-function createDatabase ()
+function createDatabase
 {
     
     MYSQL=`which mysql`

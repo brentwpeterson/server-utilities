@@ -15,8 +15,8 @@ function createDatabase ()
     
     echo $SQL
 
-    mysql -uroot -e "$SQL"
-    $MYSQL -e "$SQL"
+    mysql -uroot -proot -e "$SQL"
+    #$MYSQL -e "$SQL"
     echo "Database Created" 
 }
 

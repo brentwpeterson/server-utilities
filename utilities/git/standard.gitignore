@@ -1,7 +1,6 @@
 app/etc/local.xml
 var/
 tmp/
-.project
 downloader/*
 downloader/cache.cfg
 .idea

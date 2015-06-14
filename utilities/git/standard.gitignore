@@ -1,7 +1,6 @@
 app/etc/local.xml
 var/
 tmp/
-.htaccess
 .project
 downloader/*
 downloader/cache.cfg
@@ -16,8 +15,8 @@ Thumbs.db
 *.gz
 .DS_Store
 magmi/
-media/.htaccess
 maintenance.flag
+!media/.htaccess
 !app/design/adminhtml/default/default/template/media
 !app/design/adminhtml/default/default/template/system/config/system/storage/media
 !js/tiny_mce/plugins/media

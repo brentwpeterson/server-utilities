@@ -1,6 +1,7 @@
 app/etc/local.xml
 var/
 tmp/
+dev/
 downloader/*
 downloader/cache.cfg
 .idea
@@ -16,6 +17,7 @@ Thumbs.db
 magmi/
 maintenance.flag
 !media/.htaccess
+downloader/.htaccess
 !app/design/adminhtml/default/default/template/media
 !app/design/adminhtml/default/default/template/system/config/system/storage/media
 !js/tiny_mce/plugins/media

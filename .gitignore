@@ -1,7 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
 ### Linux template
 *~
-
+.DS_Store
 .directory
 .idea
 .vagrant

@@ -13,3 +13,6 @@ mkdir -p ~/.n98-magerun/modules/
 # https://github.com/AOEpeople/mpmd
 git clone https://github.com/AOEpeople/mpmd.git ~/.n98-magerun/modules/mpmd
 sed -i '2ialias magerun="~/./n98-magerun.phar"' ~/.bashrc
+
+# source .bashrc to your current terminal instance
+source  ~/.bashrc

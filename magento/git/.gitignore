@@ -1,0 +1,16 @@
+app/etc/local.xml
+.htaccess
+app/.htaccess
+errors/local.xml
+tasks.txt
+.idea/
+.modgit/
+includes/
+media/
+nbproject/
+var/
+.DS_Store
+*.swp
+*.swn
+*.swo
+#files & folders exception

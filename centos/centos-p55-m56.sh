@@ -8,7 +8,7 @@ yum install memcached redis
 #wget http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
 #rpm -Uvh remi-release-6*.rpm epel-release-6*.rpm
 yum update
-yum install php-mcrypt*
+#yum install php-mcrypt*
 chkconfig --levels 235 httpd on
 /etc/init.d/httpd start
 mv /etc/httpd/conf.d/fcgid.conf /etc/httpd/conf.d/fcgid.bak

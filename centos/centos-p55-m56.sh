@@ -9,8 +9,6 @@ yum install memcached redis
 #rpm -Uvh remi-release-6*.rpm epel-release-6*.rpm
 yum update
 yum install php-mcrypt*
-chkconfig --levels 235 mysqld on
-/etc/init.d/mysqld start
 chkconfig --levels 235 httpd on
 /etc/init.d/httpd start
 mv /etc/httpd/conf.d/fcgid.conf /etc/httpd/conf.d/fcgid.bak
@@ -21,6 +19,8 @@ read -p "Install Firewall? [yn]" answer
 if [ $answer == y ]; then
 yum install system-config-firewall
 fi
+chkconfig --levels 235 mysqld on
+/etc/init.d/mysqld start
 service httpd restart; service mysqld restart
 yum update
 service httpd restart; service mysqld restart

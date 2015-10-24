@@ -1,9 +1,6 @@
 yum groupinstall 'Development Tools'
 yum -y install ntp httpd24 mod_ssl httpd24-devel
-chkconfig --levels 235 mysqld on
-/etc/init.d/mysqld start
-chkconfig --levels 235 httpd on
-/etc/init.d/httpd start
+
 yum -y install  php55-mysql php55-mbstring php55 php55-devel php55-gd php55-imap php55-ldap php55-pear php55-xml php55-xmlrpc php55-pecl-apc php55-mcrypt php55-soap php55-tidy curl curl-devel perl-libwww-perl ImageMagick libxml2 libxml2-devel mod24_fcgid php55-cli
 yum install php-igbinary
 yum intsall memcached redis
@@ -12,6 +9,10 @@ wget http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
 rpm -Uvh remi-release-6*.rpm epel-release-6*.rpm
 yum update
 yum install php-mcrypt*
+chkconfig --levels 235 mysqld on
+/etc/init.d/mysqld start
+chkconfig --levels 235 httpd on
+/etc/init.d/httpd start
 mv /etc/httpd/conf.d/fcgid.conf /etc/httpd/conf.d/fcgid.bak
 sed -i '95iServerName localhost' /etc/httpd/conf/httpd.conf
 mkdir -p /etc/httpd/vhosts.d/

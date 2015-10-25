@@ -1,6 +1,9 @@
 yum groupinstall 'Development Tools'
 rpm -Uvh https://mirror.webtatic.com/yum/el6/latest.rpm
 yum -y install ntp httpd24 mod_ssl httpd24-devel
+#install Percona
+yum install http://www.percona.com/downloads/percona-release/redhat/0.1-3/percona-release-0.1-3.noarch.rpm
+yum install Percona-Server-server-56
 yum -y install  php55w-mysql php55w-mbstring php55w php55w-devel php55w-gd php55w-imap php55w-ldap php55w-pear php55w-xml php55w-xmlrpc php55w-pecl-apc php55w-mcrypt php55w-soap php55w-tidy curl curl-devel perl-libwww-perl ImageMagick libxml2 libxml2-devel mod24_fcgid php55w-cli
 #yum install php55w-igbinary
 yum install memcached redis

@@ -23,7 +23,7 @@ if [ $answer == y ]; then
 yum install system-config-firewall
 fi
 chkconfig --levels 235 mysqld on
-/etc/init.d/mysqld start
+/etc/init.d/mysql start
 service httpd restart; service mysqld restart
 yum update
 service httpd restart; service mysqld restart

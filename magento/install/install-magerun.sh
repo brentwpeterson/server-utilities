@@ -16,3 +16,8 @@ sed -i '2ialias magerun="~/./n98-magerun.phar"' ~/.bashrc
 
 # source .bashrc to your current terminal instance
 source  ~/.bashrc
+
+mkdir -p ~/.n98-magerun/modules/
+
+cd ~/.n98-magerun/modules/ &&  git clone https://github.com/brentwpeterson/magerun-addons-1.git
+cd ~/.n98-magerun/modules/ &&  git clone https://github.com/brentwpeterson/magerun-addons.git

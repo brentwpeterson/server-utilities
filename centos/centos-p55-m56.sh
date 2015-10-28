@@ -1,17 +1,19 @@
 yum groupinstall 'Development Tools'
+rpm -Uvh https://mirror.webtatic.com/yum/el6/latest.rpm
 yum -y install ntp httpd24 mod_ssl httpd24-devel
-chkconfig --levels 235 mysqld on
-/etc/init.d/mysqld start
+#install Percona
+yum install http://www.percona.com/downloads/percona-release/redhat/0.1-3/percona-release-0.1-3.noarch.rpm
+yum install Percona-Server-server-56
+yum -y install  php55w-mysql php55w-mbstring php55w php55w-devel php55w-gd php55w-imap php55w-ldap php55w-pear php55w-xml php55w-xmlrpc php55w-pecl-apc php55w-mcrypt php55w-soap php55w-tidy curl curl-devel perl-libwww-perl ImageMagick libxml2 libxml2-devel mod24_fcgid php55w-cli
+#yum install php55w-igbinary
+yum install memcached redis
+#wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+#wget http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
+#rpm -Uvh remi-release-6*.rpm epel-release-6*.rpm
+yum update
+#yum install php-mcrypt*
 chkconfig --levels 235 httpd on
 /etc/init.d/httpd start
-yum -y install  php55-mysql php55-mbstring php55 php55-devel php55-gd php55-imap php55-ldap php55-pear php55-xml php55-xmlrpc php55-pecl-apc php55-mcrypt php55-soap php55-tidy curl curl-devel perl-libwww-perl ImageMagick libxml2 libxml2-devel mod24_fcgid php55-cli
-yum install php-igbinary
-yum intsall memcached redis
-wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-wget http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
-rpm -Uvh remi-release-6*.rpm epel-release-6*.rpm
-yum update
-yum install php-mcrypt*
 mv /etc/httpd/conf.d/fcgid.conf /etc/httpd/conf.d/fcgid.bak
 sed -i '95iServerName localhost' /etc/httpd/conf/httpd.conf
 mkdir -p /etc/httpd/vhosts.d/
@@ -20,6 +22,8 @@ read -p "Install Firewall? [yn]" answer
 if [ $answer == y ]; then
 yum install system-config-firewall
 fi
+chkconfig --levels 235 mysqld on
+/etc/init.d/mysql start
 service httpd restart; service mysqld restart
 yum update
 service httpd restart; service mysqld restart

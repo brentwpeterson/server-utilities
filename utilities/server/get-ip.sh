@@ -1,1 +1,2 @@
-curl ipecho.net/plain
+#curl ipecho.net/plain
+curl ipv4.icanhazip.com

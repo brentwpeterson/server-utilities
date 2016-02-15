@@ -35,7 +35,7 @@ echo "Creating RSA Keys"
 mkdir /home/$user/.ssh
 chmod 777 /home/$user/.ssh
 su $user -c "ssh-keygen -t rsa -f /home/$user/.ssh/id_rsa"
-chmod 700 /home/$user/.ssh
+chmod 600 /home/$user/.ssh
 chown -R $user:$user /home/$user
 ##
 # Send email with id.rsa.pub attached

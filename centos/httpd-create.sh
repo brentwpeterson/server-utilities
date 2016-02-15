@@ -45,14 +45,14 @@ echo "This is the message body" | mutt -s "Development Information" -a "/home/$u
 ##
 # return to root directory
 ##
-cd ~
-echo "Copy and paste key to codebase"
-su $user -c "cat ~/.ssh/id_rsa.pub"
-echo "Enter GIT Repo adddress, followed by [ENTER]:"
-read gitrepo
-cd /var/www/vhosts/$user/html
-su $user -c "git clone $gitrepo ."
-su $user -c "mkdir var"
-su $user -c "mkdir media"
-su $user -c "chmod -R o+w media var app/etc"
-su wagento -c "magerun local-config:generate 'localhost' $user $pass $user 'files' 'admin'"
+#cd ~
+#echo "Copy and paste key to codebase"
+#su $user -c "cat ~/.ssh/id_rsa.pub"
+#echo "Enter GIT Repo adddress, followed by [ENTER]:"
+#read gitrepo
+#cd /var/www/vhosts/$user/html
+#su $user -c "git clone $gitrepo ."
+#su $user -c "mkdir var"
+#su $user -c "mkdir media"
+#su $user -c "chmod -R o+w media var app/etc"
+#su wagento -c "magerun local-config:generate 'localhost' $user $pass $user 'files' 'admin'"

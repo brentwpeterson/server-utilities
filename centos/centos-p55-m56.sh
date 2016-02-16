@@ -1,6 +1,7 @@
 yum groupinstall 'Development Tools'
 rpm -Uvh https://mirror.webtatic.com/yum/el6/latest.rpm
-yum -y install ntp httpd24 mod_ssl httpd24-devel
+#Need to work on getting Apache 2.4 into this
+yum -y install ntp httpd mod_ssl httpd-devel
 #install Percona
 yum install http://www.percona.com/downloads/percona-release/redhat/0.1-3/percona-release-0.1-3.noarch.rpm
 yum install Percona-Server-server-56

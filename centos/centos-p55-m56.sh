@@ -23,11 +23,11 @@ read -p "Install Firewall? [yn]" answer
 if [ $answer == y ]; then
 yum install system-config-firewall
 fi
-chkconfig --levels 235 mysqld on
+chkconfig --levels 235 mysql on
 /etc/init.d/mysql start
-service httpd restart; service mysqld restart
+service httpd restart; service mysql restart
 yum update
-service httpd restart; service mysqld restart
+service httpd restart; service mysql restart
 useradd wagento
 echo 'wagento         ALL=(ALL)       NOPASSWD: ALL' >> /etc/sudoers
 su wagento

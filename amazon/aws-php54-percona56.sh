@@ -6,8 +6,8 @@ yum groupinstall 'Development Tools'
 yum install http://www.percona.com/downloads/percona-release/redhat/0.1-3/percona-release-0.1-3.noarch.rpm
 yum install Percona-Server-client-56 Percona-Server-server-56
 yum -y install ntp httpd24 mod24_ssl 
-chkconfig --levels 235 mysqld on
-/etc/init.d/mysqld start
+chkconfig --levels 235 mysql on
+/etc/init.d/mysql start
 chkconfig --levels 235 httpd on
 /etc/init.d/httpd start
 yum -y install php54 php54-devel php54-gd php54-imap php54-ldap php54-mysql php54-odbc php54-pear php54-xml php54-xmlrpc php54-pecl-apc php54-mbstring php54-mcrypt php54-snmp php54-soap php54-tidy curl curl-devel perl-libwww-perl ImageMagick libxml2 libxml2-devel mod24_fcgid php54-cli httpd24-devel mutt

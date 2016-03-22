@@ -18,8 +18,6 @@ touch $GIT;
  
 #default rules
 echo 'app/etc/local.xml' >> $GIT;
-echo '.htaccess' >> $GIT;
-echo 'app/.htaccess' >> $GIT;
 echo 'errors/local.xml' >> $GIT;
 echo 'tasks.txt' >> $GIT;
  
@@ -27,7 +25,7 @@ echo 'tasks.txt' >> $GIT;
 echo '.idea/' >> $GIT;
 echo '.modgit/' >> $GIT;
 echo 'includes/' >> $GIT;
-echo 'media/' >> $GIT;
+echo 'media/catalog' >> $GIT;
 echo 'nbproject/' >> $GIT;
 echo 'var/' >> $GIT;
 echo 'dev/' >> $GIT;

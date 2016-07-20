@@ -6,8 +6,8 @@ yum groupinstall 'Development Tools'
 yum install http://www.percona.com/downloads/percona-release/redhat/0.1-3/percona-release-0.1-3.noarch.rpm
 yum install Percona-Server-client-56 Percona-Server-server-56
 #yum remove httpd httpd-tools
-chkconfig --levels 235 mysqld on
-/etc/init.d/mysqld start
+chkconfig --levels 235 mysql on
+/etc/init.d/mysql start
 rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
 rpm -Uvh https://mirror.webtatic.com/yum/el6/latest.rpm
 #install PHP

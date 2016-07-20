@@ -14,6 +14,7 @@ rpm -Uvh https://mirror.webtatic.com/yum/el6/latest.rpm
 yum -y install php70w php70w-devel php70w-gd php70w-imap php70w-ldap php70w-mysql php70w-odbc php70w-pear php70w-xml php70w-xmlrpc php70w-pecl-apc php70w-mbstring php70w-mcrypt php70w-snmp php70w-soap php70w-tidy 
 yum -y install curl curl-devel perl-libwww-perl ImageMagick libxml2 libxml2-devel php70w-cli mutt
 #Install apache
+yum remove httpd httpd-tools
 yum -y install ntp httpd24 mod24_ssl httpd24-tools httpd24-devel
 #yum -y install mod24_fcgid 
 

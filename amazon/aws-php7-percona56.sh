@@ -25,9 +25,9 @@ sed -i '95iServerName localhost' /etc/httpd/conf/httpd.conf
 echo 'IncludeOptional vhosts.d/*.conf' >> /etc/httpd/conf/httpd.conf
 chkconfig --levels 235 httpd on
 /etc/init.d/httpd start
-service httpd restart; service mysqld restart
+service httpd restart; service mysql restart
 yum update
-service httpd restart; service mysqld restart
+service httpd restart; service mysql restart
 cd /home/ec2-user/
 wget https://raw.githubusercontent.com/netz98/n98-magerun/master/n98-magerun.phar
 chmod +x ./n98-magerun.phar

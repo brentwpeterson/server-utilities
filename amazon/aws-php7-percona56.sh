@@ -16,6 +16,11 @@ yum install Percona-Server-client-56 Percona-Server-server-56
 #sed -i '95iServerName localhost' /etc/httpd/conf/httpd.conf
 #echo 'IncludeOptional vhosts.d/*.conf' >> /etc/httpd/conf/httpd.conf
 
+#install NGINX
+yum -y install ntp nginx 
+chkconfig --levels 235 nginx on
+/etc/init.d/nginx start
+
 chkconfig --levels 235 mysql on
 /etc/init.d/mysql start
 rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm

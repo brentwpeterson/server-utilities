@@ -10,7 +10,7 @@
 path="$1/app/etc/env.php"
 if [ -e "$path" ]
 then
-echo "Name of file (letsdump.sh is default, followed by [ENTER]:"
+echo "Name of file (letsdump-m2.sh is default, followed by [ENTER]:"
 read file
 #########################
 # The path from ~/your_directory
@@ -22,12 +22,47 @@ file=${file:-letsdump.sh}
 #########################
 # Collect data on Local.xml
 #########################
-dbs=($(cat $path | grep -oP '(?<=<dbname><!\[CDATA\[)[^\]]+'))
-host=($(cat $path | grep -oP '(?<=<host><!\[CDATA\[)[^\]]+'))
-password=($(cat $path | grep -oP '(?<=<password><!\[CDATA\[)[^\]]+'))
-user=($(cat $path | grep -oP '(?<=<username><!\[CDATA\[)[^\]]+'))
-prefix=($(cat $path | grep -oP '(?<=<table_prefix><!\[CDATA\[)[^\]]+'))
-echo $path
+IN=$(grep -m 1 "dbname" $path)
+set -- "$IN" 
+IFS="=>"; declare -a Array=($*) 
+IN="${Array[2]}"
+set -- "$IN" 
+IFS="'"; declare -a Array=($*)
+dbs="${Array[1]}"
+#echo $dbs
+IN=$(grep -m 1 "host" $path)
+set -- "$IN" 
+IFS="=>"; declare -a Array=($*) 
+IN="${Array[2]}"
+set -- "$IN" 
+IFS="'"; declare -a Array=($*)
+host="${Array[1]}"
+#echo $host
+IN=$(grep -m 1 "password" $path)
+set -- "$IN" 
+IFS="=>"; declare -a Array=($*) 
+IN="${Array[2]}"
+set -- "$IN" 
+IFS="'"; declare -a Array=($*)
+password="${Array[1]}"
+#echo $password
+IN=$(grep -m 1 "username" $path)
+set -- "$IN" 
+IFS="=>"; declare -a Array=($*) 
+IN="${Array[2]}"
+set -- "$IN" 
+IFS="'"; declare -a Array=($*)
+user="${Array[1]}"
+#echo $user
+IN=$(grep -m 1 "table_prefix" $path)
+set -- "$IN" 
+IFS="=>"; declare -a Array=($*) 
+IN="${Array[2]}"
+set -- "$IN" 
+IFS="'"; declare -a Array=($*)
+table_prefix="${Array[1]}"
+#echo $table_prefix
+#echo $path
 #########################
 # Check if path exists
 #########################

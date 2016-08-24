@@ -5,7 +5,7 @@ sudo rpm -ivh https://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.no
 # Make sure you remove the packages in the Amazon main repo
 ###########################################################
 
-sudo yum install varnish git varnish-libs-devel
+sudo yum install varnish varnish-libs-devel
 sudo yum install GeoIP-devel GeoIP-GeoLite-data automake autoconf libtool ncurses-devel libxslt groff pcre-devel pkgconfig jemalloc-devel python-docutils
 
 mdir $HOME/src

@@ -6,6 +6,7 @@ rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
 rpm -Uvh https://mirror.webtatic.com/yum/el6/latest.rpm
 
 sed -i '15iexclude=httpd-tools* httpd*' /etc/yum.repos.d/amzn-main.repo 
+sed -i '15iexclude=httpd-tools* httpd*' /etc/yum.repos.d/amzn-updates.repo
 yum -y install ntp httpd24 mod24_ssl httpd24-tools httpd24-devel
 yum -y install mod24_fcgid 
 chkconfig --levels 235 httpd on

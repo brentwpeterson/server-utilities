@@ -6,6 +6,7 @@ rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
 rpm -Uvh https://mirror.webtatic.com/yum/el6/latest.rpm
 rpm --nosignature -i https://repo.varnish-cache.org/redhat/varnish-4.0.el6.rpm
 
+sed -i -e '/\[epel\]/,/^\[/s/enabled=0/enabled=1/' /etc/yum.repos.d/epel.repo
 sed -i '15iexclude=httpd-tools* httpd* varnish*' /etc/yum.repos.d/amzn-main.repo 
 sed -i '15iexclude=httpd-tools* httpd* varnish*' /etc/yum.repos.d/amzn-updates.repo
 yum -y install ntp httpd24 mod24_ssl httpd24-tools httpd24-devel

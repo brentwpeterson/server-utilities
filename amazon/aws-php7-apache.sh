@@ -15,7 +15,7 @@ sudo rpm -Uvh http://mirrors.mediatemple.net/remi/enterprise/remi-release-6.rpm
 
 #install PHP
 yum --enablerepo=epel install scl-utils
-yum -y install php70 php70-devel php70-gd php70-pdo php70-php-pear php70-imap php70-zip php70-intl php70-fpm php70-ldap php70-xml php70-xmlrpc php70-curl php70-mbstring php70-mcrypt php70-snmp php70-soap php70-tidy 
+yum -y install php70 php70-devel php70-gd php70-pdo php70-php-pear php70-mysqlnd php70-imap php70-zip php70-intl php70-bcmath php70-fpm php70-ldap php70-xml php70-xmlrpc php70-curl php70-mbstring php70-mcrypt php70-snmp php70-soap php70-tidy 
 yum -y install curl curl-devel perl-libwww-perl ImageMagick libxml2 libxml2-devel php70-cli mutt
 
 cd ~/

@@ -80,7 +80,7 @@ touch $HOME/$backdir/update/clean-log.sql
 echo "MAGEFILE=\"$dbs-\$(date +%d%m%Y_%H%M).sql.gz\"" >> $HOME/$backdir/$file
 
 #not using this shinizzle (yet)
-#echo "mysql -p'$password' -u $user -h $host $dbs < update/clean-log.sql" >> $HOME/$backdir/$file
+echo "#For login // mysql -p'$password' -u $user -h $host $dbs " >> $HOME/$backdir/$file
 echo "mysqldump -p'$password' -u$user -h$host --single-transaction --quick $dbs | gzip > \$MAGEFILE" >> $HOME/$backdir/$file
 echo "truncate "$prefix"dataflow_batch_import;truncate "$prefix"log_customer;truncate "$prefix"log_quote;truncate "$prefix"log_summary;truncate "$prefix"log_summary_type;truncate "$prefix"log_url;truncate "$prefix"log_url_info;truncate "$prefix"log_visitor;truncate "$prefix"log_visitor_info;truncate "$prefix"log_visitor_online;truncate "$prefix"report_viewed_product_index;truncate "$prefix"report_compared_product_index;truncate "$prefix"report_event;truncate "$prefix"sendfriend_log;" > $HOME/$backdir/update/clean-log.sql
 else

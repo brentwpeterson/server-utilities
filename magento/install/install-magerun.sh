@@ -5,6 +5,7 @@
 # DO NOT USE THIS IF YOU HAVE NO IDEA WHAT YOU ARE DOING
 #########################
 cd ~/
+rm -f n98-magerun.phar
 wget https://raw.githubusercontent.com/netz98/n98-magerun/master/n98-magerun.phar
 chmod +x ./n98-magerun.phar
 cp ./n98-magerun.phar /usr/local/bin/

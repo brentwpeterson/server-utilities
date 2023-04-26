@@ -56,14 +56,15 @@ rm /etc/nginx/sites-enabled/default
 systemctl restart nginx
 systemctl restart php8.1-fpm
 
+#UnComment if you want to install Magewnto
 # Download Magento 2.4
-cd /var/www/html
-composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition magento
+# cd /var/www/html
+# composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition magento
 
 # Set proper permissions for Magento
-chown -R www-data:www-data /var/www/html/magento
-find /var/www/html/magento -type d -exec chmod 770 {} \;
-find /var/www/html/magento -type f -exec chmod 660 {} \;
-chmod +x /var/www/html/magento/bin/magento
+# chown -R www-data:www-data /var/www/html/magento
+# find /var/www/html/magento -type d -exec chmod 770 {} \;
+# find /var/www/html/magento -type f -exec chmod 660 {} \;
+# chmod +x /var/www/html/magento/bin/magento
 
-echo "Magento installation completed. Please proceed with the browser-based installation."
+# echo "Magento installation completed. Please proceed with the browser-based installation."

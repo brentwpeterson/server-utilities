@@ -32,8 +32,19 @@ mysql_secure_installation
 # Install Composer
 apt install -y composer
 
-# Create NGINX server block file for Magento
-cat > /etc/nginx/sites-available/magento <<EOL
+# Download Magento 2.4
+cd /var/www/html
+composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition magento
+
+# Set proper permissions for Magento
+chown -R www-data:www-data /var/www/html/magento
+find /var/www/html/magento -type d -exec chmod 770 {} \;
+find /var/www/html/magento -type f -exec chmod 660 {} \;
+chmod +x /var/www/html/magento/bin/magento
+
+# Create NGINX server block file for Magento only after Magento has been installed
+if [ -f /var/www/html/magento/nginx.conf.sample ]; then
+  cat > /etc/nginx/sites-available/magento <<EOL
 upstream fastcgi_backend {
   server  unix:/run/php/php8.1-fpm.sock;
 }
@@ -45,6 +56,10 @@ server {
   include /var/www/html/magento/nginx.conf.sample;
 }
 EOL
+else
+  echo "Cannot find /var/www/html/magento/nginx.conf.sample file. Please check your Magento installation."
+  exit 1
+fi
 
 # Enable the NGINX server block
 ln -s /etc/nginx/sites-available/magento /etc/nginx/sites-enabled/
@@ -55,15 +70,5 @@ rm /etc/nginx/sites-enabled/default
 # Restart NGINX and PHP-FPM services
 systemctl restart nginx
 systemctl restart php8.1-fpm
-
-# Download Magento 2.4
-cd /var/www/html
-composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition magento
-
-# Set proper permissions for Magento
-chown -R www-data:www-data /var/www/html/magento
-find /var/www/html/magento -type d -exec chmod 770 {} \;
-find /var/www/html/magento -type f -exec chmod 660 {} \;
-chmod +x /var/www/html/magento/bin/magento
 
 echo "Magento installation completed. Please proceed with the browser-based installation."

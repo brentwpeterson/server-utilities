@@ -29,15 +29,23 @@ apt install -y mariadb-server
 # Configure MariaDB
 mysql_secure_installation
 
-# Create a new user for Composer and Magento
+# Create a new user for Magento
 useradd -m -s /bin/bash magento
 passwd magento
 
-# Install Composer as the magento user
-sudo -u magento sh -c "cd ~ && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer"
+# Install Composer globally as root
+curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Download Magento 2.4 as the magento user
-sudo -u magento sh -c "cd /var/www/html && composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition magento"
+# Make sure to replace your Magento marketplace public and private keys
+export COMPOSER_AUTH='{"http-basic": {"repo.magento.com": {"username": "<public-key>", "password": "<private-key>"}}}'
+sudo -u magento sh -c "cd /var/www/html && COMPOSER_AUTH='$COMPOSER_AUTH' composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition magento"
+
+# Check if Magento installation directory exists
+if [ ! -d "/var/www/html/magento" ]; then
+  echo "Magento installation directory does not exist. Please check your Magento installation."
+  exit 1
+fi
 
 # Set proper permissions for Magento
 chown -R www-data:www-data /var/www/html/magento
@@ -64,14 +72,3 @@ else
   exit 1
 fi
 
-# Enable the NGINX server block
-ln -s /etc/nginx/sites-available/magento /etc/nginx/sites-enabled/
-
-# Disable the default NGINX server block
-rm /etc/nginx/sites-enabled/default
-
-# Restart NGINX and PHP-FPM services
-systemctl restart nginx
-systemctl restart php8.1-fpm
-
-echo "Magento installation completed. Please proceed with the browser-based installation."

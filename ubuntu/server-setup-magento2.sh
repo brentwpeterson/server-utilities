@@ -29,12 +29,15 @@ apt install -y mariadb-server
 # Configure MariaDB
 mysql_secure_installation
 
-# Install Composer
-apt install -y composer
+# Create a new user for Composer and Magento
+useradd -m -s /bin/bash magento
+passwd magento
 
-# Download Magento 2.4
-cd /var/www/html
-composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition magento
+# Install Composer as the magento user
+sudo -u magento sh -c "cd ~ && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer"
+
+# Download Magento 2.4 as the magento user
+sudo -u magento sh -c "cd /var/www/html && composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition magento"
 
 # Set proper permissions for Magento
 chown -R www-data:www-data /var/www/html/magento

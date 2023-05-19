@@ -18,7 +18,7 @@ add-apt-repository -y ppa:ondrej/php
 apt update
 
 # Install PHP 8.1 and required extensions
-apt install -y php8.1 php8.1-fpm php8.1-mysql php8.1-dom php8.1-simplexml php8.1-soap php8.1-gd php8.1-iconv php8.1-mbstring php8.1-ctype php8.1-zip php8.1-pdo php8.1-xml php8.1-bcmath php8.1-json php8.1-intl php8.1-curl php8.1-xsl
+apt install -y php8.1 php8.1-fpm php8.1-mysql php8.1-dom php8.1-simplexml php8.1-soap php8.1-gd php8.1-iconv php8.1-mbstring php8.1-ctype php8.1-zip php8.1-pdo php8.1-xml php8.1-bcmath php8.1-intl php8.1-curl php8.1-xsl
 
 # Install NGINX
 apt install -y nginx
@@ -56,15 +56,14 @@ rm /etc/nginx/sites-enabled/default
 systemctl restart nginx
 systemctl restart php8.1-fpm
 
-#UnComment if you want to install Magewnto
 # Download Magento 2.4
-# cd /var/www/html
-# composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition magento
+cd /var/www/html
+composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition magento
 
 # Set proper permissions for Magento
-# chown -R www-data:www-data /var/www/html/magento
-# find /var/www/html/magento -type d -exec chmod 770 {} \;
-# find /var/www/html/magento -type f -exec chmod 660 {} \;
-# chmod +x /var/www/html/magento/bin/magento
+chown -R www-data:www-data /var/www/html/magento
+find /var/www/html/magento -type d -exec chmod 770 {} \;
+find /var/www/html/magento -type f -exec chmod 660 {} \;
+chmod +x /var/www/html/magento/bin/magento
 
-# echo "Magento installation completed. Please proceed with the browser-based installation."
+echo "Magento installation completed. Please proceed with the browser-based installation."

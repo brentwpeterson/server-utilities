@@ -36,6 +36,10 @@ passwd magento
 # Install Composer globally as root
 curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+# Make sure /var/www/html exists and is owned by the magento user
+mkdir -p /var/www/html
+chown magento:magento /var/www/html
+
 # Download Magento 2.4 as the magento user
 # Make sure to replace your Magento marketplace public and private keys
 export COMPOSER_AUTH='{"http-basic": {"repo.magento.com": {"username": "<public-key>", "password": "<private-key>"}}}'
@@ -72,3 +76,9 @@ else
   exit 1
 fi
 
+# Enable the site
+ln -s /etc/nginx/sites-available/magento /etc/nginx/sites-enabled/
+systemctl restart nginx
+
+# Print success message
+echo "Magento installation successful!"

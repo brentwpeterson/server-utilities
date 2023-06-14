@@ -6,6 +6,8 @@ read -p "Please enter the username: " USERNAME
 # Generate a random password for the new user with OpenSSL and assign it to a variable
 PASSWORD=$(openssl rand -base64 14)
 
+echo -e "\nUser $USERNAME has been created.\nPlease copy the below user credentials:\nUsername: $USERNAME\nPassword: $PASSWORD for the next step"
+
 # Create the new user
 sudo adduser --home /home/$USERNAME --shell /bin/bash --gecos "" $USERNAME
 

@@ -36,6 +36,14 @@ sudo chmod 700 /home/$USERNAME/.ssh
 sudo touch /home/$USERNAME/.ssh/authorized_keys
 sudo chmod 600 /home/$USERNAME/.ssh/authorized_keys
 
+# Prompt to add public key
+read -p "Do you want to add a public key for the new user? (yes/no): " KEY_OPTION
+if [[ $KEY_OPTION == "yes" ]]
+then
+    read -p "Please paste the public key: " PUBLIC_KEY
+    echo "$PUBLIC_KEY" | sudo tee -a /home/$USERNAME/.ssh/authorized_keys
+fi
+
 # Change the owner of .ssh directory and authorized_keys file to the new user
 sudo chown -R $USERNAME:$USERNAME /home/$USERNAME/.ssh
 

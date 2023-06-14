@@ -6,13 +6,17 @@ read -p "Please enter the username: " USERNAME
 # Generate a random password for the new user with OpenSSL and assign it to a variable
 PASSWORD=$(openssl rand -base64 14)
 
-echo -e "\nUser $USERNAME has been created.\nPlease copy the below user credentials:\nUsername: $USERNAME\nPassword: $PASSWORD for the next step"
+echo -e "\nCreating user $USERNAME..."
 
-# Create the new user
-sudo adduser --home /home/$USERNAME --shell /bin/bash --gecos "" $USERNAME
+# Create the new user with useradd command
+sudo useradd -m -s /bin/bash $USERNAME
+
+echo -e "Setting password for the new user $USERNAME..."
 
 # Set the password for the new user
 echo "$USERNAME:$PASSWORD" | sudo chpasswd
+
+echo -e "\nUser $USERNAME has been created.\nPlease copy the below user credentials:\nUsername: $USERNAME\nPassword: $PASSWORD\nProceed to the next step..."
 
 # Ask if the new user should be added to the sudo group
 read -p "Should the user be added to the sudo group? (yes/no): " SUDO_OPTION
@@ -36,4 +40,3 @@ sudo chmod 600 /home/$USERNAME/.ssh/authorized_keys
 sudo chown -R $USERNAME:$USERNAME /home/$USERNAME/.ssh
 
 echo -e "\nUser $USERNAME has been created.\nPlease copy the below user credentials:\nUsername: $USERNAME\nPassword: $PASSWORD\nYou can now add your public key to /home/$USERNAME/.ssh/authorized_keys."
-

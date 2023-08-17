@@ -20,7 +20,7 @@ echo -e "\nUser $USERNAME has been created.\nPlease copy the below user credenti
 
 # Ask if the new user should be added to the sudo group
 read -p "Should the user be added to the sudo group? (yes/no): " SUDO_OPTION
-if [ $SUDO_OPTION == "yes" ]
+if [[ $SUDO_OPTION == "yes" ]]
 then
     sudo usermod -aG sudo $USERNAME
     echo "$USERNAME is added to the sudo group."
@@ -38,7 +38,7 @@ sudo chmod 600 /home/$USERNAME/.ssh/authorized_keys
 
 # Prompt to add public key
 read -p "Do you want to add a public key for the new user? (yes/no): " KEY_OPTION
-if [ $KEY_OPTION == "yes" ]
+if [[ $KEY_OPTION == "yes" ]]
 then
     read -p "Please paste the public key: " PUBLIC_KEY
     echo "$PUBLIC_KEY" | sudo tee -a /home/$USERNAME/.ssh/authorized_keys
